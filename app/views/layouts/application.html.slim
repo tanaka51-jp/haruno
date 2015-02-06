@@ -7,4 +7,62 @@ html
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body
+    nav.light-green.lighten-1 role='navigation'
+      .container
+        .nav-wrapper
+          = link_to 'Haruno', nil, class: 'brand-logo'
+          ul#nav-mobile.right.side-nav
+            li
+              = link_to 'Navbar link', nil
+          = link_to nil, class: 'button-collapse', 'data-activates' => 'nav-mobile'
+            i.mdi-navigation-menu
+
     = yield
+
+    footer.page-footer.red.lighten-2
+      .container
+        .row
+          .col.l6.s12
+            h5.white-text
+              | Haruno made by @tanaka51
+            p.grey-text.text-lighten-4
+              | simple workflow makes you happy:)
+          .col.l3.s12
+            / TODO somthing good here
+            /h5.white-text
+            /  | Settings
+            /ul
+            /  li
+            /    a.white-text[href="#!"]
+            /      | Link 1
+            /  li
+            /    a.white-text[href="#!"]
+            /      | Link 2
+            /  li
+            /    a.white-text[href="#!"]
+            /      | Link 3
+            /  li
+            /    a.white-text[href="#!"]
+            /      | Link 4
+          .col.l3.s12
+            / TODO feedback form here
+            /h5.white-text
+            /  | Connect
+            /ul
+            /  li
+            /    a.white-text[href="#!"]
+            /      | Link 1
+            /  li
+            /    a.white-text[href="#!"]
+            /      | Link 2
+            /  li
+            /    a.white-text[href="#!"]
+            /      | Link 3
+            /  li
+            /    a.white-text[href="#!"]
+            /      | Link 4
+      .footer-copyright
+        .container
+          |  Made by
+          a.orange-text.text-lighten-3[href="http://twitter.com/tanaka51"]
+            | @tanaka51

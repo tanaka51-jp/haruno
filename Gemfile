@@ -8,6 +8,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'slim-rails'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-materialize'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'spring'

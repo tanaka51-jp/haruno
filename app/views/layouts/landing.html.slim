@@ -7,18 +7,6 @@ html
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body
-    nav.teal.accent-4 role='navigation'
-      .container
-        .nav-wrapper
-          = link_to 'Haruno', root_path, class: 'brand-logo'
-          / TODO something good navbar
-          ul#nav-mobile.right.side-nav
-            li= link_to current_user.organization.name, nil
-            li= link_to current_user.full_name, nil, class: 'dropdown-button', 'data-activates' => 'dropdown_user'
-            li= link_to 'logout', logout_path, method: :delete
-          = link_to nil, class: 'button-collapse', 'data-activates' => 'nav-mobile'
-            i.mdi-navigation-menu
-
     = yield
 
     footer.page-footer.red.lighten-2

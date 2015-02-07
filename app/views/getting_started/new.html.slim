@@ -1,5 +1,37 @@
 .container
-  h1.header.teal-text.accent-4-text
-    | GettingStarted#new
+  .row
+    = form_for @form, url: getting_started_path, method: :post, html: { class: 'col s12' } do |f|
+      .section
+        h2.teal-text.accent-4
+          | Organization
 
-  p Find me in app/views/getting_started/new.html.slim
+        .row
+          .input-field.col.s12
+            = f.label      :organization_name, '組織名'
+            = f.text_field :organization_name, class: 'validate'
+
+        .row
+          .input-field.col.s12
+            = f.label      :organization_login_name, 'ログイン用組織名'
+            = f.text_field :organization_login_name, class: 'validate'
+
+      .section
+        h2.teal-text.accent-4
+          | Admin User
+
+        .row
+          .input-field.col.s6
+            = f.label      :user_family_name, '姓'
+            = f.text_field :user_family_name, class: 'validate'
+          .input-field.col.s6
+            = f.label      :user_given_name, '名'
+            = f.text_field :user_given_name, class: 'validate'
+
+        .row
+          .input-field.col.s12
+            = f.label      :user_email, 'Eメールアドレス'
+            = f.text_field :user_email, class: 'validate'
+
+      .section
+        = button_tag(class: 'btn waves-effect waves-light btn-large') do
+          | 登録する

@@ -5,6 +5,12 @@
         h2.teal-text.accent-4
           | Organization
 
+        - if @form.organization.errors.any?
+          .card-panel.pink.lighten-2
+            ul.white-text
+              - @form.organization.errors.full_messages.each do |msg|
+                li= msg
+
         .row
           .input-field.col.s12
             = f.label      :organization_name
@@ -18,6 +24,12 @@
       .section
         h2.teal-text.accent-4
           | Admin User
+
+        - if @form.user.errors.any?
+          .card-panel.pink.lighten-2
+            ul.white-text
+              - @form.user.errors.full_messages.each do |msg|
+                li= msg
 
         .row
           .input-field.col.s6

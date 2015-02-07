@@ -12,9 +12,9 @@ html
         .nav-wrapper
           = link_to 'Haruno', root_path, class: 'brand-logo'
           / TODO something good navbar
-          /ul#nav-mobile.right.side-nav
-          /  li
-          /    = link_to 'Navbar link', nil
+          ul#nav-mobile.right.side-nav
+            - if logged_in?
+              li= link_to 'logout', logout_path, method: :delete
           = link_to nil, class: 'button-collapse', 'data-activates' => 'nav-mobile'
             i.mdi-navigation-menu
 

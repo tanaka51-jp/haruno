@@ -3,5 +3,6 @@ class Organization < ActiveRecord::Base
   validates :login_name,
     presence: true,
     length: { minimum: 3, maximum: 255 },
-    format: { with: /\A[a-zA-Z]([a-zA-Z0-9_\-])*\z/ }
+    format: { with: /\A[a-zA-Z]([a-zA-Z0-9_\-])*\z/ },
+    uniqueness: true
 end

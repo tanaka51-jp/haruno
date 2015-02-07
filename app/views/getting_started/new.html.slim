@@ -7,12 +7,12 @@
 
         .row
           .input-field.col.s12
-            = f.label      :organization_name, '組織名'
+            = f.label      :organization_name
             = f.text_field :organization_name, class: 'validate'
 
         .row
           .input-field.col.s12
-            = f.label      :organization_login_name, 'ログイン用組織名'
+            = f.label      :organization_login_name
             = f.text_field :organization_login_name, class: 'validate'
 
       .section
@@ -21,15 +21,15 @@
 
         .row
           .input-field.col.s6
-            = f.label      :user_family_name, '姓'
+            = f.label      :user_family_name
             = f.text_field :user_family_name, class: 'validate'
           .input-field.col.s6
-            = f.label      :user_given_name, '名'
+            = f.label      :user_given_name
             = f.text_field :user_given_name, class: 'validate'
 
         .row
           .input-field.col.s12
-            = f.label      :user_email, 'Eメールアドレス'
+            = f.label      :user_email
             = f.text_field :user_email, class: 'validate'
 
       .section

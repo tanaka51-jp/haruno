@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      organization: 組織
+      user: ユーザ
+    attributes:
+      organization:
+        name: 組織名
+        login_name: ログイン用組織名
+      user:
+        family_name: 姓
+        given_name: 名
+        email: Eメールアドレス
+
+  activemodel:
+    attributes:
+      getting_started_form:
+        organization_name: 組織名
+        organization_login_name: ログイン用組織名
+        user_family_name: 姓
+        user_given_name: 名
+        user_email: Eメールアドレス

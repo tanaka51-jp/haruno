@@ -6,10 +6,4 @@ class SessionsForm
   validates :organization_login_name, presence: true
   validates :user_email,    presence: true
   validates :user_password, presence: true
-
-  def login
-    return false unless valid?
-
-    false
-  end
 end

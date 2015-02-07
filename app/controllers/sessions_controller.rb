@@ -6,9 +6,11 @@ class SessionsController < ApplicationController
   def create
     @form = SessionsForm.new(sessions_form_params)
 
-    if @form.login
+    if login(sessions_form_params[:organization_login_name], sessions_form_params[:user_email], sessions_form_params[:user_password])
       redirect_to root_path
     else
+      @form.errors.add(:base, '組織名、Eメールアドレス、パスワードを確認してください。')
+
       render :new
     end
   end

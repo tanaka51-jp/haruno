@@ -20,3 +20,7 @@ ja:
         user_family_name: 姓
         user_given_name: 名
         user_email: Eメールアドレス
+      sessions_form:
+        organization_login_name: 組織名
+        user_email: Eメールアドレス
+        user_password: パスワード

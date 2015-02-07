@@ -8,6 +8,7 @@ gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
+gem 'sorcery'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-materialize'

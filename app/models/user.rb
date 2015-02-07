@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :family_name, presence: true
   validates :given_name,  presence: true
   validates :email,       presence: true, uniqueness: { scope: :organization_id }, email: true
+  validates :password,    length: { minimum: 6 }, confirmation: true, allow_nil: true, presence: { on: :create }
+  validates :password_confirmation, presence: true, if: -> { password.present? }
 
   class << self
     # override sorcery default authentication method

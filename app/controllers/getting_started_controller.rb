@@ -21,7 +21,9 @@ class GettingStartedController < ApplicationController
       :organization_login_name,
       :user_family_name,
       :user_given_name,
-      :user_email
+      :user_email,
+      :user_password,
+      :user_password_confirmation
     )
   end
 end

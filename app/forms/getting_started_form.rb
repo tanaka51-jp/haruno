@@ -2,7 +2,7 @@ class GettingStartedForm
   include ActiveModel::Model
 
   attr_accessor :organization_name, :organization_login_name
-  attr_accessor :user_family_name, :user_given_name, :user_email
+  attr_accessor :user_family_name, :user_given_name, :user_email, :user_password, :user_password_confirmation
 
   attr_reader :organization, :user
 
@@ -18,7 +18,9 @@ class GettingStartedForm
       organization: organization,
       family_name:  user_family_name,
       given_name:   user_given_name,
-      email:        user_email
+      email:        user_email,
+      password:     user_password,
+      password_confirmation: user_password_confirmation
     )
   end
 

@@ -44,6 +44,16 @@
             = f.label      :user_email
             = f.text_field :user_email, class: 'validate'
 
+        .row
+          .input-field.col.s12
+            = f.label          :user_password
+            = f.password_field :user_password, class: 'validate'
+
+        .row
+          .input-field.col.s12
+            = f.label          :user_password_confirmation
+            = f.password_field :user_password_confirmation, class: 'validate'
+
       .section
         = button_tag(class: 'btn waves-effect waves-light btn-large') do
           | 登録する

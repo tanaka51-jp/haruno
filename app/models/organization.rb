@@ -1,4 +1,6 @@
 class Organization < ActiveRecord::Base
+  has_many :users
+
   validates :name, presence: true, length: { maximum: 255 }
   validates :login_name,
     presence: true,

@@ -25,7 +25,18 @@ class GettingStartedForm
   end
 
   def save
-    valid? && @organization.save && @user.save
+    return false unless valid?
+
+    Organization.transaction do
+      @organization.save!
+      @user.save!
+    end
+
+    true
+  rescue ActiveRecord::RecordInvalid => e
+    Rails.logger.error e.inspect
+
+    false
   end
 
   def valid?

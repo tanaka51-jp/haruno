@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :sessions, only: %i(create)
   get    'login',  to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
+
+  scope 'wf' do
+    resources :users, only: %i(new create)
+  end
 end

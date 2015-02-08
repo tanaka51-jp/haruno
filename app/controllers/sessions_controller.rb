@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login
+
+  layout 'landing'
+
   def new
     @form = SessionsForm.new
   end
@@ -7,7 +11,7 @@ class SessionsController < ApplicationController
     @form = SessionsForm.new(sessions_form_params)
 
     if login(sessions_form_params[:organization_login_name], sessions_form_params[:user_email], sessions_form_params[:user_password])
-      redirect_to root_path
+      redirect_to new_user_path
     else
       @form.errors.add(:base, '組織名、Eメールアドレス、パスワードを確認してください。')
 

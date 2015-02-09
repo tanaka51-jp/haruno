@@ -1,79 +1,81 @@
-.container
-  h2.teal-text.accent-4-text
-    | ユーザ一覧
+= content_for :page_title
+  | ユーザ一覧
 
-  #error-card.card-panel.pink.lighten-2
-    ul.white-text
+.section
+  .container
+    .section
+      #error-card.card-panel.pink.lighten-2
+        ul.white-text
 
-  #success-card.card-panel.teal.accent-4.white-text
+      #success-card.card-panel.teal.accent-4.white-text
 
-  = form_for User.new, url: users_path(format: :json), remote: true do |f|
-    .row
-      .input-field.col.s2
-        = f.label      :family_name
-        = f.text_field :family_name, class: 'validate'
-      .input-field.col.s2
-        = f.label      :given_name
-        = f.text_field :given_name, class: 'validate'
-      .input-field.col.s6
-        = f.label      :email
-        = f.text_field :email, class: 'validate'
-      .input-field.col.s2
-        = button_tag(class: 'btn waves-effect waves-light') do
-          | 登録する
+      = form_for User.new, url: users_path(format: :json), remote: true do |f|
+        .row
+          .input-field.col.s2
+            = f.label      :family_name
+            = f.text_field :family_name, class: 'validate'
+          .input-field.col.s2
+            = f.label      :given_name
+            = f.text_field :given_name, class: 'validate'
+          .input-field.col.s6
+            = f.label      :email
+            = f.text_field :email, class: 'validate'
+          .input-field.col.s2
+            = button_tag(class: 'btn waves-effect waves-light') do
+              | 登録する
 
-  .section
-    table#users-table
-      thead
-        tr
-          th= User.human_attribute_name(:full_name)
-          th= User.human_attribute_name(:email)
-      tbody
-        - @users.each do |user|
+    .section
+      table#users-table
+        thead
           tr
-            td= user.full_name
-            td= user.email
+            th= User.human_attribute_name(:full_name)
+            th= User.human_attribute_name(:email)
+        tbody
+          - @users.each do |user|
+            tr
+              td= user.full_name
+              td= user.email
 
-  javascript:
-    $(function(){
-      var $successCard = $('#success-card');
-      var $errorCard = $('#error-card');
-      var $ul = $errorCard.find('ul');
-      var $usersTbody = $('#users-table tbody');
+    javascript:
+      $(function(){
+        var $successCard = $('#success-card');
+        var $errorCard = $('#error-card');
+        var $ul = $errorCard.find('ul');
+        var $usersTbody = $('#users-table tbody');
 
-      $successCard.hide();
-      $errorCard.hide();
+        $successCard.hide();
+        $errorCard.hide();
 
-      $('#new_user')
-        .on('ajax:success', function(xhr, data, status){
-          // toggle cards
-          $successCard.show().empty();
-          $errorCard.hide();
+        $('#new_user')
+          .on('ajax:success', function(xhr, data, status){
+            // toggle cards
+            $successCard.show().empty();
+            $errorCard.hide();
 
-          // render success messages
-          var msg = data['family_name'] + ' ' + data['given_name'] + '(' + data['email'] + ') が作成されました。'
-          $successCard.append($('<p>').text(msg));
+            // render success messages
+            var msg = data['family_name'] + ' ' + data['given_name'] + '(' + data['email'] + ') が作成されました。'
+            $successCard.append($('<p>').text(msg));
 
-          // append created user to the table
-          $tr = $('<tr>');
-          $tr.append($('<td>').text(data['family_name'] + ' ' + data['given_name']));
-          $tr.append($('<td>').text(data['email']));
-          $usersTbody.append($tr);
+            // append created user to the table
+            $tr = $('<tr>');
+            $tr.append($('<td>').text(data['family_name'] + ' ' + data['given_name']));
+            $tr.append($('<td>').text(data['email']));
+            $usersTbody.append($tr);
 
-          // clear form
-          $(this).find('input').val('');
-        })
-        .on('ajax:error', function(xhr, status, error) {
-          // toggle cards
-          $successCard.hide();
-          $errorCard.show();
+            // clear form
+            $(this).find('input').val('');
+          })
+          .on('ajax:error', function(xhr, status, error) {
+            // toggle cards
+            $successCard.hide();
+            $errorCard.show();
 
-          // clear exists messages
-          $ul.empty();
+            // clear exists messages
+            $ul.empty();
 
-          // render error messages
-          status.responseJSON.forEach(function(msg) {
-            $ul.append($('<li>').text(msg));
+            // render error messages
+            status.responseJSON.forEach(function(msg) {
+              $ul.append($('<li>').text(msg));
+            });
           });
-        });
-    });
+      });

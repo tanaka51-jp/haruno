@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   scope 'wf' do
+    # XXX ひとまず
+    root to: 'users#index', as: 'wf_root'
+
     resources :users, only: %i(index create)
   end
 end

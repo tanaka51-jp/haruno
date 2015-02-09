@@ -10,6 +10,7 @@ ja:
       user:
         family_name: 姓
         given_name: 名
+        full_name: 氏名
         email: Eメールアドレス
         password: パスワード
         password_confirmation: パスワード確認

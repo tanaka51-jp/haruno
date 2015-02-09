@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   scope 'wf' do
-    resources :users, only: %i(new create)
+    resources :users, only: %i(index create)
   end
 end
